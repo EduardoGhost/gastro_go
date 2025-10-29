@@ -5,7 +5,7 @@ class RestaurantCard extends StatelessWidget {
   final String category;
   final double rating;
   final double distanceKm;
-  final String imageUrl;
+  final String? imageUrl;
 
   const RestaurantCard({
     super.key,
@@ -13,7 +13,7 @@ class RestaurantCard extends StatelessWidget {
     required this.category,
     required this.rating,
     required this.distanceKm,
-    required this.imageUrl,
+    this.imageUrl,
   });
 
   @override
