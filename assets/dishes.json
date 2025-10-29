@@ -1,0 +1,42 @@
+[
+  {
+    "id": "d1",
+    "restaurant_id": "r1",
+    "name": "Feijoada Completa",
+    "price": 39.9,
+    "vegan": false,
+    "image_url": "https://picsum.photos/seed/d1/800/400"
+  },
+  {
+    "id": "d2",
+    "restaurant_id": "r2",
+    "name": "Sushi Combo 10 peças",
+    "price": 49.9,
+    "vegan": false,
+    "image_url": "https://picsum.photos/seed/d2/800/400"
+  },
+  {
+    "id": "d3",
+    "restaurant_id": "r3",
+    "name": "Spaghetti ao Pomodoro",
+    "price": 34.9,
+    "vegan": true,
+    "image_url": "https://picsum.photos/seed/d3/800/400"
+  },
+  {
+    "id": "d4",
+    "restaurant_id": "r4",
+    "name": "Cheeseburger Clássico",
+    "price": 29.9,
+    "vegan": false,
+    "image_url": "https://picsum.photos/seed/d4/800/400"
+  },
+  {
+    "id": "d5",
+    "restaurant_id": "r5",
+    "name": "Frango Tikka Masala",
+    "price": 42.5,
+    "vegan": false,
+    "image_url": "https://picsum.photos/seed/d5/800/400"
+  }
+]

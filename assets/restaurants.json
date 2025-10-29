@@ -1,0 +1,66 @@
+[
+  {
+    "id": "r1",
+    "name": "Sabor Mineiro",
+    "category": "Brasileira",
+    "rating": 4.6,
+    "distance_km": 2.3,
+    "image_url": "https://picsum.photos/seed/r1/800/400"
+  },
+  {
+    "id": "r2",
+    "name": "Tokyo Sushi",
+    "category": "Japonesa",
+    "rating": 4.8,
+    "distance_km": 1.1,
+    "image_url": "https://picsum.photos/seed/r2/800/400"
+  },
+  {
+    "id": "r3",
+    "name": "La Pasta Bella",
+    "category": "Italiana",
+    "rating": 4.5,
+    "distance_km": 3.0,
+    "image_url": "https://picsum.photos/seed/r3/800/400"
+  },
+  {
+    "id": "r4",
+    "name": "Burger Town",
+    "category": "Fast Food",
+    "rating": 4.2,
+    "distance_km": 0.8,
+    "image_url": "https://picsum.photos/seed/r4/800/400"
+  },
+  {
+    "id": "r5",
+    "name": "Curry House",
+    "category": "Indiana",
+    "rating": 4.7,
+    "distance_km": 2.5,
+    "image_url": "https://picsum.photos/seed/r5/800/400"
+  },
+  {
+    "id": "r6",
+    "name": "Le Gourmet",
+    "category": "Francesa",
+    "rating": 4.9,
+    "distance_km": 3.2,
+    "image_url": "https://picsum.photos/seed/r6/800/400"
+  },
+  {
+    "id": "r7",
+    "name": "Taco Fiesta",
+    "category": "Mexicana",
+    "rating": 4.3,
+    "distance_km": 1.9,
+    "image_url": "https://picsum.photos/seed/r7/800/400"
+  },
+  {
+    "id": "r8",
+    "name": "Green Bowl",
+    "category": "Saudável",
+    "rating": 4.6,
+    "distance_km": 2.0,
+    "image_url": "https://picsum.photos/seed/r8/800/400"
+  }
+]
