@@ -5,8 +5,9 @@ import '../../data/repository/RestaurantRepositoryImpl.dart';
 import '../bloc/restaurants/restaurant_bloc.dart';
 import '../bloc/restaurants/restaurant_event.dart';
 import '../bloc/restaurants/restaurant_state.dart';
-import '../widgets/category_filter.dart';
+import '../widgets/category_dialog.dart';
 import '../widgets/restaurant_card.dart';
+import '../widgets/sort_dialog.dart';
 
 class RestaurantListPage extends StatefulWidget {
   const RestaurantListPage({super.key});
@@ -18,6 +19,7 @@ class RestaurantListPage extends StatefulWidget {
 class _RestaurantListPageState extends State<RestaurantListPage> {
   String _searchQuery = '';
   String _selectedCategory = '';
+  String _selectedSort = '';
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class _RestaurantListPageState extends State<RestaurantListPage> {
             appBar: AppBar(title: const Text('Gastro Go - Restaurantes')),
             body: Column(
               children: [
-                // Campo de busca
+                // Campo de busca de restaurantes
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
@@ -50,26 +52,48 @@ class _RestaurantListPageState extends State<RestaurantListPage> {
                   ),
                 ),
 
-                // Botão de filtro
                 Padding(
-                  padding:
-                  const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: ElevatedButton.icon(
-                      onPressed: () {
-                        _showCategoryFilter(context);
-                      },
-                      icon: const Icon(Icons.filter_list),
-                      label: const Text('Filtrar'),
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: const Size(120, 36),
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ElevatedButton.icon(
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (_) => SortDialog(
+                              selectedSort: _selectedSort,
+                              onSortSelected: (sort) {
+                                setState(() => _selectedSort = sort);
+                                context.read<RestaurantBloc>().add(SortRestaurants(sort));
+                              },
+                            ),
+                          );
+                        },
+                        icon: const Icon(Icons.sort),
+                        label: const Text('Ordenar'),
                       ),
-                    ),
+                      const SizedBox(width: 12),
+                      ElevatedButton.icon(
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (_) => CategoryDialog(
+                              selectedCategory: _selectedCategory,
+                              onCategorySelected: (cat) {
+                                setState(() => _selectedCategory = cat);
+                                _applyFilters(context);
+                              },
+                            ),
+                          );
+                        },
+                        icon: const Icon(Icons.category),
+                        label: const Text('Filtrar'),
+                      ),
+                    ],
                   ),
                 ),
 
-                const SizedBox(height: 4),
 
                 // Listagem de restaurantes
                 Expanded(
@@ -119,16 +143,4 @@ class _RestaurantListPageState extends State<RestaurantListPage> {
     }
   }
 
-  void _showCategoryFilter(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      builder: (_) => CategoryFilter(
-        selectedCategory: _selectedCategory,
-        onCategorySelected: (cat) {
-          setState(() => _selectedCategory = cat);
-          _applyFilters(context);
-        },
-      ),
-    );
-  }
 }

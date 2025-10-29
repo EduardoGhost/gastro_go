@@ -40,5 +40,18 @@ class RestaurantBloc extends Bloc<RestaurantEvent, RestaurantState> {
           .toList();
       emit(RestaurantLoaded(filtered));
     });
+    // ordenação por avalição ou distancia
+    on<SortRestaurants>((event, emit) {
+      List<Restaurant> sorted = List.from(_allRestaurants);
+
+      if (event.sortBy == 'rating') {
+        sorted.sort((a, b) => b.rating.compareTo(a.rating));
+      } else if (event.sortBy == 'distance') {
+        sorted.sort((a, b) => a.distanceKm.compareTo(b.distanceKm));
+      }
+
+      emit(RestaurantLoaded(sorted));
+    });
+
   }
 }

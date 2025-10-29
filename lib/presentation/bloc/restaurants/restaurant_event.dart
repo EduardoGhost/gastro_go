@@ -12,3 +12,9 @@ class FilterByCategory extends RestaurantEvent {
   FilterByCategory(this.category);
 }
 
+class SortRestaurants extends RestaurantEvent {
+  final String sortBy; // 'rating' ou 'distance'
+  SortRestaurants(this.sortBy);
+}
+
+
