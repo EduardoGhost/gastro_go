@@ -1,4 +1,4 @@
-Gastro Go
+**Gastro Go**
 
 Gastro Go é um aplicativo Flutter que lista restaurantes e seus pratos,
 permitindo favoritar itens e salvar localmente usando banco de dados "Hive".
@@ -19,7 +19,7 @@ Pré-requisitos
 Android Studio ou VS Code com suporte a Flutter
 JDK 17 (para compilação Android)
 
-Passos
+**Passos**
 
 Clone o repositório:
 git clone <https://github.com/EduardoGhost/gastro_go>
@@ -38,7 +38,7 @@ flutter run
 
 -------------------------------------------------------------------------------------------
 
-Lista do que foi implementado
+**Lista do que foi implementado**
 1. Lista de restaurantes
     Exibe nome, categoria, rating (0–5) e distância.
     Busca por texto (nome) e filtro por categoria.
@@ -60,7 +60,8 @@ Camadas separadas (data/, domain/, presentation/).
 Bloc para gerenciamento de estado.
 Repository pattern para isolar a fonte de dados.
 
-Funcionalidades faltantes
+**Funcionalidades Faltantes**
+
 6. Tratamento de erros & loading
 Estados explícitos: carregando, sucesso, vazio, erro (com retry).
 
