@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/datasources/dish_local_datasource.dart';
-import '../../data/repository/DishRepositoryImpl.dart';
+import '../../data/repository/dish_repository_impl.dart';
+import '../../domain/entity/favorite.dart';
 import '../../domain/entity/restaurant.dart';
 import '../bloc/dishes/dish_bloc.dart';
+import '../bloc/favorite/favorite_bloc.dart';
+import '../bloc/favorite/favorite_event.dart';
+import '../bloc/favorite/favorite_state.dart';
 import '../widgets/dish_card.dart';
 
 class DetailPage extends StatelessWidget {
@@ -32,12 +36,24 @@ class DetailPage extends StatelessWidget {
                   const SizedBox(height: 4),
                   Text('${restaurant.category} • ⭐ ${restaurant.rating} • ${restaurant.distanceKm.toStringAsFixed(1)} km'),
                   const SizedBox(height: 12),
+
                   // Botão de favoritar restaurante
                   ElevatedButton.icon(
                     onPressed: () {
-                      // implementar favoritar restaurante
+                      if (restaurant.id.isEmpty) {
+                        return;
+                      }
+                      context.read<FavoritesBloc>().add(
+                        ToggleFavorite(Favorite(id: restaurant.id, isRestaurant: true, name: restaurant.name)),
+                      );
                     },
-                    icon: const Icon(Icons.favorite_border),
+                    icon: BlocBuilder<FavoritesBloc, FavoritesState>(
+                      builder: (context, state) {
+                        final favs = state is FavoritesLoaded ? state.favorites : <String>{};
+                        final isFav = favs.contains(restaurant.id);
+                        return Icon(isFav ? Icons.favorite : Icons.favorite_border);
+                      },
+                    ),
                     label: const Text('Favoritar Restaurante'),
                   ),
                 ],
@@ -59,6 +75,7 @@ class DetailPage extends StatelessWidget {
                       itemBuilder: (context, index) {
                         final d = dishes[index];
                         return DishCard(
+                          id: d.id,
                           name: d.name,
                           price: d.price,
                           vegan: d.vegan,

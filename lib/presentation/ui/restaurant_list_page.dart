@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/datasources/restaurant_local_datasource.dart';
-import '../../data/repository/RestaurantRepositoryImpl.dart';
+import '../../data/repository/restaurant_repository_impl.dart';
 import '../bloc/restaurants/restaurant_bloc.dart';
 import '../bloc/restaurants/restaurant_event.dart';
 import '../bloc/restaurants/restaurant_state.dart';
@@ -9,6 +9,7 @@ import '../widgets/category_dialog.dart';
 import '../widgets/restaurant_card.dart';
 import '../widgets/sort_dialog.dart';
 import 'details_page.dart';
+import 'favorite_page.dart';
 
 class RestaurantListPage extends StatefulWidget {
   const RestaurantListPage({super.key});
@@ -34,7 +35,23 @@ class _RestaurantListPageState extends State<RestaurantListPage> {
       child: Builder(
         builder: (context) {
           return Scaffold(
-            appBar: AppBar(title: const Text('Gastro Go - Restaurantes')),
+            appBar: AppBar(title: const Text('Gastro Go - Restaurantes'),
+                actions: [
+                IconButton(
+                icon: const Icon(Icons.favorite),
+            tooltip: 'Favoritos',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const FavoritesPage(),
+                ),
+              );
+            },
+          ),
+          ],
+          ),
+
             body: Column(
               children: [
                 // Campo de busca de restaurantes

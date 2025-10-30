@@ -4,6 +4,7 @@ import '../../domain/entity/dish.dart';
 
 abstract class DishLocalDataSource {
   Future<List<Dish>> getDishes(String restaurantId);
+  Future<List<Dish>> getAllDishes();
 }
 
 class DishLocalDataSourceImpl implements DishLocalDataSource {
@@ -15,5 +16,12 @@ class DishLocalDataSourceImpl implements DishLocalDataSource {
         .map((e) => Dish.fromJson(e))
         .where((dish) => dish.restaurantId == restaurantId)
         .toList();
+  }
+
+  @override
+  Future<List<Dish>> getAllDishes() async {
+    final jsonString = await rootBundle.loadString('assets/dishes.json');
+    final List<dynamic> jsonList = jsonDecode(jsonString);
+    return jsonList.map((e) => Dish.fromJson(e)).toList();
   }
 }

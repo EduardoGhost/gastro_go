@@ -1,42 +1,33 @@
 [
-  {
-    "id": "d1",
-    "restaurant_id": "r1",
-    "name": "Feijoada Completa",
-    "price": 39.9,
-    "vegan": false,
-    "image_url": "https://picsum.photos/seed/d1/800/400"
-  },
-  {
-    "id": "d2",
-    "restaurant_id": "r2",
-    "name": "Sushi Combo 10 peças",
-    "price": 49.9,
-    "vegan": false,
-    "image_url": "https://picsum.photos/seed/d2/800/400"
-  },
-  {
-    "id": "d3",
-    "restaurant_id": "r3",
-    "name": "Spaghetti ao Pomodoro",
-    "price": 34.9,
-    "vegan": true,
-    "image_url": "https://picsum.photos/seed/d3/800/400"
-  },
-  {
-    "id": "d4",
-    "restaurant_id": "r4",
-    "name": "Cheeseburger Clássico",
-    "price": 29.9,
-    "vegan": false,
-    "image_url": "https://picsum.photos/seed/d4/800/400"
-  },
-  {
-    "id": "d5",
-    "restaurant_id": "r5",
-    "name": "Frango Tikka Masala",
-    "price": 42.5,
-    "vegan": false,
-    "image_url": "https://picsum.photos/seed/d5/800/400"
-  }
+  { "id": "d1", "restaurant_id": "r1", "name": "Feijoada Completa", "price": 39.9, "vegan": false, "image_url": "https://picsum.photos/seed/d1/800/400" },
+  { "id": "d2", "restaurant_id": "r1", "name": "Pão de Queijo", "price": 5.0, "vegan": true, "image_url": "https://picsum.photos/seed/d2/800/400" },
+  { "id": "d3", "restaurant_id": "r1", "name": "Frango com Quiabo", "price": 29.9, "vegan": false, "image_url": "https://picsum.photos/seed/d3/800/400" },
+
+  { "id": "d4", "restaurant_id": "r2", "name": "Sushi Combo 10 peças", "price": 49.9, "vegan": false, "image_url": "https://picsum.photos/seed/d4/800/400" },
+  { "id": "d5", "restaurant_id": "r2", "name": "Sashimi Mix", "price": 55.0, "vegan": false, "image_url": "https://picsum.photos/seed/d5/800/400" },
+  { "id": "d6", "restaurant_id": "r2", "name": "Temaki Vegano", "price": 35.0, "vegan": true, "image_url": "https://picsum.photos/seed/d6/800/400" },
+
+  { "id": "d7", "restaurant_id": "r3", "name": "Spaghetti Carbonara", "price": 38.0, "vegan": false, "image_url": "https://picsum.photos/seed/d7/800/400" },
+  { "id": "d8", "restaurant_id": "r3", "name": "Lasagna Vegana", "price": 36.0, "vegan": true, "image_url": "https://picsum.photos/seed/d8/800/400" },
+  { "id": "d9", "restaurant_id": "r3", "name": "Risotto de Funghi", "price": 42.0, "vegan": true, "image_url": "https://picsum.photos/seed/d9/800/400" },
+
+  { "id": "d10", "restaurant_id": "r4", "name": "Cheeseburger Clássico", "price": 29.9, "vegan": false, "image_url": "https://picsum.photos/seed/d10/800/400" },
+  { "id": "d11", "restaurant_id": "r4", "name": "Batata Frita", "price": 12.0, "vegan": true, "image_url": "https://picsum.photos/seed/d11/800/400" },
+  { "id": "d12", "restaurant_id": "r4", "name": "Onion Rings", "price": 14.0, "vegan": true, "image_url": "https://picsum.photos/seed/d12/800/400" },
+
+  { "id": "d13", "restaurant_id": "r5", "name": "Frango Tikka Masala", "price": 42.5, "vegan": false, "image_url": "https://picsum.photos/seed/d13/800/400" },
+  { "id": "d14", "restaurant_id": "r5", "name": "Naan", "price": 8.0, "vegan": true, "image_url": "https://picsum.photos/seed/d14/800/400" },
+  { "id": "d15", "restaurant_id": "r5", "name": "Vegetable Curry", "price": 35.0, "vegan": true, "image_url": "https://picsum.photos/seed/d15/800/400" },
+
+  { "id": "d16", "restaurant_id": "r6", "name": "Croissant", "price": 12.0, "vegan": false, "image_url": "https://picsum.photos/seed/d16/800/400" },
+  { "id": "d17", "restaurant_id": "r6", "name": "Quiche de Espinafre", "price": 25.0, "vegan": true, "image_url": "https://picsum.photos/seed/d17/800/400" },
+  { "id": "d18", "restaurant_id": "r6", "name": "Salada Niçoise", "price": 28.0, "vegan": true, "image_url": "https://picsum.photos/seed/d18/800/400" },
+
+  { "id": "d19", "restaurant_id": "r7", "name": "Tacos al Pastor", "price": 32.0, "vegan": false, "image_url": "https://picsum.photos/seed/d19/800/400" },
+  { "id": "d20", "restaurant_id": "r7", "name": "Guacamole", "price": 15.0, "vegan": true, "image_url": "https://picsum.photos/seed/d20/800/400" },
+  { "id": "d21", "restaurant_id": "r7", "name": "Quesadilla Vegana", "price": 25.0, "vegan": true, "image_url": "https://picsum.photos/seed/d21/800/400" },
+
+  { "id": "d22", "restaurant_id": "r8", "name": "Salada Bowl", "price": 22.0, "vegan": true, "image_url": "https://picsum.photos/seed/d22/800/400" },
+  { "id": "d23", "restaurant_id": "r8", "name": "Smoothie Verde", "price": 18.0, "vegan": true, "image_url": "https://picsum.photos/seed/d23/800/400" },
+  { "id": "d24", "restaurant_id": "r8", "name": "Wrap Vegano", "price": 20.0, "vegan": true, "image_url": "https://picsum.photos/seed/d24/800/400" }
 ]
