@@ -26,8 +26,12 @@ class CategoryDialog extends StatelessWidget {
 
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: SizedBox(
-        width: 250,
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(
+          maxHeight: 400,
+          minWidth: 250,
+          maxWidth: 250,
+        ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -39,19 +43,25 @@ class CategoryDialog extends StatelessWidget {
               ),
             ),
             const Divider(height: 1),
-            ...categories.map((cat) {
-              return ListTile(
-                title: Text(cat.isEmpty ? 'Todas' : cat),
-                selected: selectedCategory == cat,
-                onTap: () {
-                  onCategorySelected(cat);
-                  Navigator.pop(context);
-                },
-              );
-            }),
+            Expanded(
+              child: ListView(
+                shrinkWrap: true,
+                children: categories.map((cat) {
+                  return ListTile(
+                    title: Text(cat.isEmpty ? 'Todas' : cat),
+                    selected: selectedCategory == cat,
+                    onTap: () {
+                      onCategorySelected(cat);
+                      Navigator.pop(context);
+                    },
+                  );
+                }).toList(),
+              ),
+            ),
           ],
         ),
       ),
     );
+
   }
 }
