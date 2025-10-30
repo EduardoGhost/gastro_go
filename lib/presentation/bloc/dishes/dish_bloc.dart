@@ -1,23 +1,39 @@
 import 'package:bloc/bloc.dart';
+import '../../../domain/entity/dish.dart';
 import '../../../domain/repositories/dish_repository.dart';
-import 'dish_event.dart';
-import 'dish_state.dart';
 
+// events
+abstract class DishEvent {}
+class LoadDishesByRestaurant extends DishEvent {
+  final String restaurantId;
+  LoadDishesByRestaurant(this.restaurantId);
+}
+
+// states
+abstract class DishState {}
+class DishInitial extends DishState {}
+class DishLoading extends DishState {}
+class DishLoaded extends DishState {
+  final List<Dish> dishes;
+  DishLoaded(this.dishes);
+}
+class DishError extends DishState {
+  final String message;
+  DishError(this.message);
+}
+
+// bloc
 class DishBloc extends Bloc<DishEvent, DishState> {
   final DishRepository repository;
 
-  DishBloc({required this.repository}) : super(DishLoading()) {
-    on<LoadDishes>((event, emit) async {
+  DishBloc({required this.repository}) : super(DishInitial()) {
+    on<LoadDishesByRestaurant>((event, emit) async {
       emit(DishLoading());
       try {
-        final dishes = await repository.getDishes(event.restaurantId);
-        if (dishes.isEmpty) {
-          emit(DishEmpty());
-        } else {
-          emit(DishLoaded(dishes));
-        }
+        final dishes = await repository.getDishesByRestaurant(event.restaurantId);
+        emit(DishLoaded(dishes));
       } catch (e) {
-        emit(DishError('Erro ao carregar pratos: $e'));
+        emit(DishError('Erro ao carregar pratos'));
       }
     });
   }

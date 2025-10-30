@@ -8,6 +8,7 @@ import '../bloc/restaurants/restaurant_state.dart';
 import '../widgets/category_dialog.dart';
 import '../widgets/restaurant_card.dart';
 import '../widgets/sort_dialog.dart';
+import 'details_page.dart';
 
 class RestaurantListPage extends StatefulWidget {
   const RestaurantListPage({super.key});
@@ -117,6 +118,14 @@ class _RestaurantListPageState extends State<RestaurantListPage> {
                               category: r.category,
                               rating: r.rating,
                               distanceKm: r.distanceKm,
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => DetailPage(restaurant: r),
+                                  ),
+                                );
+                              },
                             );
                           },
                         );

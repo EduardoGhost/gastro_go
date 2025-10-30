@@ -8,11 +8,12 @@ class DishRepositoryImpl implements DishRepository {
   DishRepositoryImpl({required this.localDataSource});
 
   @override
-  Future<List<Dish>> getDishes(String restaurantId) async {
-    try {
-      return await localDataSource.getDishes(restaurantId);
-    } catch (e) {
-      throw Exception('Erro ao buscar pratos: $e');
-    }
+  Future<List<Dish>> getDishesByRestaurant(String restaurantId) async {
+    return await localDataSource.getDishes(restaurantId);
+  }
+
+  @override
+  Future<List<Dish>> getDishes() async {
+    return await localDataSource.getDishes('');
   }
 }
